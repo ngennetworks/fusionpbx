@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e023bec11b (Added Grandstream provisioning templates)
 <?xml version="1.0" encoding="UTF-8"?>
 <gs_provision version="1">
 <mac>{$mac|replace:'-':''}</mac>
@@ -3130,6 +3133,7 @@
 <P2986></P2986>
 </config>
 </gs_provision>
+<<<<<<< HEAD
 =======
 <?xml version="1.0" encoding="UTF-8"?>
 <gs_provision version="1">
@@ -6277,3 +6281,5 @@
 </config>
 </gs_provision>
 >>>>>>> f963bf13b0adc506de80df637dacc664c1487851
+=======
+>>>>>>> e023bec11b (Added Grandstream provisioning templates)

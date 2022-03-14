@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e023bec11b (Added Grandstream provisioning templates)
 <?xml version="1.0" encoding="utf-8"?>
 <gs_provision version="1">
   <config version="1">
@@ -3667,6 +3670,7 @@ Outgoing calls. 0 - No, 1 - Yes. Default is 0 -->
 
   </config>
 </gs_provision>
+<<<<<<< HEAD
 =======
 <?xml version="1.0" encoding="utf-8"?>
 <gs_provision version="1">
@@ -7338,3 +7342,5 @@ Outgoing calls. 0 - No, 1 - Yes. Default is 0 -->
   </config>
 </gs_provision>
 >>>>>>> f963bf13b0adc506de80df637dacc664c1487851
+=======
+>>>>>>> e023bec11b (Added Grandstream provisioning templates)
