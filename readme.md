@@ -1,3 +1,9 @@
+NGEN Networks - FusionPBX
+--------------------------------------
+
+How is this different from the Official repo?
+ - Additional features added to Grandstream Carrier-Grade IP phone provisioning templates
+
 What is [FusionPBX](https://www.fusionpbx.com/)?
 --------------------------------------
 

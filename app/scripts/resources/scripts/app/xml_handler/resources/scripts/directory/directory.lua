@@ -29,7 +29,7 @@
 --	Luis Daniel Lucio Quiroz <dlucio@okay.com.mx>
 
 --set the default
-	continue = true;
+continue = true;
 
 --get the action
 	action = params:getHeader("action");
@@ -358,8 +358,11 @@
 							-- get the follow me information
 								if (row.follow_me_uuid ~= nil and string.len(row.follow_me_uuid) > 0) then
 									follow_me_uuid = row.follow_me_uuid;
-									follow_me_enabled = row.follow_me_enabled;
-									--follow_me_destinations= row.follow_me_destinations;
+									if (do_not_disturb == "true" or forward_all_enabled == "true") then
+										follow_me_enabled = "false";
+									else
+										follow_me_enabled = row.follow_me_enabled;
+									end
 								end
 
 							-- check matching UserID and AuthName
@@ -380,7 +383,9 @@
 								presence_id = (NUMBER_AS_PRESENCE_ID and sip_from_number or sip_from_user) .. "@" .. domain_name;
 
 							--set the dial_string
-								if (string.len(row.dial_string) > 0) then
+								if (do_not_disturb == "true") then
+									dial_string = "error/user_busy";
+								elseif (string.len(row.dial_string) > 0) then
 									dial_string = row.dial_string;
 								else
 										local destination = (DIAL_STRING_BASED_ON_USERID and sip_from_number or sip_from_user) .. "@" .. domain_name;
