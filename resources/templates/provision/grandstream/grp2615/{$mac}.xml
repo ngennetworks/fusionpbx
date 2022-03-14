@@ -27,16 +27,12 @@
 
     <!-- # SIP Server -->
     <!-- # String -->
-{if $account.1.sip_transport != 'dns srv'}
     <P47>{$account.1.server_address}:{$account.1.sip_port}</P47>
-{else}
-    <P47>{$account.1.server_address}</P47>
-{/if}
 
     <!-- # Secondary SIP Server -->
     <!-- # String -->
     
-{if $account.1.sip_transport != 'dns srv' && isset($account.1.server_address_secondary)}
+{if isset($account.1.server_address_secondary)}
     <P2312>{$account.1.server_address_secondary}:{$account.1.sip_port}</P2312>
 {else}
     <P2312>{$account.1.server_address_secondary}</P2312>
@@ -45,7 +41,7 @@
     <!-- # Outbound Proxy -->
     <!-- # String -->
     
-{if $account.1.sip_transport != 'dns srv' && isset($account.1.outbound_proxy_primary)}
+{if isset($account.1.outbound_proxy_primary)}
     <P48>{$account.1.outbound_proxy_primary}:{$account.1.sip_port}</P48>
 {else}
     <P48>{$account.1.outbound_proxy_primary}</P48>
@@ -54,7 +50,7 @@
     <!-- # Backup Outbound Proxy -->
     <!-- # String -->
     
-{if $account.1.sip_transport != 'dns srv' && isset($account.1.outbound_proxy_secondary)}
+{if isset($account.1.outbound_proxy_secondary)}
     <P2333>{$account.1.outbound_proxy_secondary}:{$account.1.sip_port}</P2333>
 {else}
     <P2333>{$account.1.outbound_proxy_secondary}</P2333>
@@ -82,7 +78,7 @@
 
     <!-- # Voice Mail Access Number -->
     <!-- # String -->
-    <P33>{$voicemail_number}</P33>
+    <P33>*97</P33>
 
     <!-- # Account Display -->
     <!-- # Number: 0, 1. 0 - User Name, 1 - User ID. Default is 0 -->
@@ -153,7 +149,7 @@
     <!-- # Unregister On Reboot. 0 - No, 1 - Yes, 2 - Instance. Default is 0 -->
     <!-- # Number: 0, 1 -->
     <!-- # Mandatory -->
-    <P81>1</P81>
+    <P81>0</P81>
 
     <!-- # Register Expiration (in minutes). Default is 60. Max about 45 days -->
     <!-- # Number: 1 - 64800 -->
@@ -933,35 +929,19 @@
 
     <!-- #Do Not Disturb (DND) - On -->
     <!-- # String -->
-    {if isset($account.1.password)}
-        <P2344>*78</P2344>
-    {else}
-        <P2344></P2344>
-    {/if}
+    <P2344></P2344>
 
     <!-- #Do Not Disturb (DND) - Off -->
     <!-- # String -->
-    {if isset($account.1.password)}
-        <P2345>*79</P2345>
-    {else}
-        <P2345></P2345>
-    {/if}
+    <P2345></P2345>
 
     <!-- #Call Forward Unconditionally (All) - On -->
     <!-- # String -->
-    {if isset($account.1.password)}
-    	<P26013>*72</P26013>
-    {else}
-    	<P26013></P26013>
-    {/if}
+    <P26013></P26013>
 
     <!-- #Call Forward Unconditionally (All) - Off -->
     <!-- # String -->
-    {if isset($account.1.password)}
-    	<P26014>*73</P26014>
-    {else}
-    	<P26014></P26014>
-    {/if}
+    <P26014></P26014>
 
     <!-- #Call Forward Busy - On -->
     <!-- # String -->
@@ -1005,16 +985,12 @@
 
     <!-- # SIP Server -->
     <!-- # String -->
-{if $account.2.sip_transport != 'dns srv'}
     <P402>{$account.2.server_address}:{$account.2.sip_port}</P402>
-{else}
-    <P402>{$account.2.server_address}</P402>
-{/if}
 
     <!-- # Secondary SIP Server -->
     <!-- # String -->
     
-{if $account.2.sip_transport != 'dns srv' && isset($account.2.server_address_secondary)}
+{if isset($account.2.server_address_secondary)}
     <P2412>{$account.2.server_address_secondary}:{$account.2.sip_port}</P2412>
 {else}
     <P2412>{$account.2.server_address_secondary}</P2412>
@@ -1023,7 +999,7 @@
     <!-- # Outbound Proxy -->
     <!-- # String -->
     
-{if $account.2.sip_transport != 'dns srv' && isset($account.2.outbound_proxy_primary)}
+{if isset($account.2.outbound_proxy_primary)}
     <P403>{$account.2.outbound_proxy_primary}:{$account.2.sip_port}</P403>
 {else}
     <P403>{$account.2.outbound_proxy_primary}</P403>
@@ -1032,7 +1008,7 @@
     <!-- # Backup Outbound Proxy -->
     <!-- # String -->
     
-{if $account.2.sip_transport != 'dns srv' && isset($account.2.outbound_proxy_secondary)}
+{if isset($account.2.outbound_proxy_secondary)}
     <P2433>{$account.2.outbound_proxy_secondary}:{$account.2.sip_port}</P2433>
 {else}
     <P2433>{$account.2.outbound_proxy_secondary}</P2433>
@@ -1060,7 +1036,7 @@
 
     <!-- # Voice Mail UserID -->
     <!-- # String -->
-    <P426>{$voicemail_number}</P426>
+    <P426>*97</P426>
 
     <!-- # Account Display -->
     <!-- # Number: 0, 1. 0 - User Name, 1 - User ID. Default is 0 -->
@@ -1902,35 +1878,19 @@
 
     <!-- #Do Not Disturb (DND) - On -->
     <!-- # String -->
-    {if isset($account.2.password)}
-        <P2444>*78</P2444>
-    {else}
-	      <P2444></P2444>
-    {/if}
+    <P2444></P2444>
 
     <!-- #Do Not Disturb (DND) - Off -->
     <!-- # String -->
-    {if isset($account.2.password)}
-        <P2445>*79</P2445>
-    {else}
-        <P2445></P2445>
-    {/if}
+    <P2445></P2445>
 
     <!-- #Call Forward Unconditionally (All) - On -->
     <!-- # String -->
-    {if isset($account.2.password)}
-        <P26113>*72</P26113>
-    {else}
-        <P26113></P26113>
-    {/if}
+    <P26113></P26113>
 
     <!-- #Call Forward Unconditionally (All) - Off -->
     <!-- # String -->
-    {if isset($account.2.password)}
-        <P26114>*73</P26114>
-    {else}
-        <P26114></P26114>
-    {/if}
+    <P26114></P26114>
 
     <!-- #Call Forward Busy - On -->
     <!-- # String -->
@@ -1974,16 +1934,12 @@
 
     <!-- # SIP Server -->
     <!-- # String -->
-{if $account.3.sip_transport != 'dns srv'}
     <P502>{$account.3.server_address}:{$account.3.sip_port}</P502>
-{else}
-    <P502>{$account.3.server_address}</P502>
-{/if}
 
     <!-- # Secondary SIP Server -->
     <!-- # String -->
     
-{if $account.3.sip_transport != 'dns srv' && isset($account.3.server_address_secondary)}
+{if isset($account.3.server_address_secondary)}
     <P2512>{$account.3.server_address_secondary}:{$account.3.sip_port}</P2512>
 {else}
     <P2512>{$account.3.server_address_secondary}</P2512>
@@ -1992,7 +1948,7 @@
     <!-- # Outbound Proxy -->
     <!-- # String -->
 
-{if $account.3.sip_transport != 'dns srv' && isset($account.3.outbound_proxy_primary)}
+{if isset($account.3.outbound_proxy_primary)}
     <P503>{$account.3.outbound_proxy_primary}:{$account.3.sip_port}</P503>
 {else}
     <P503>{$account.3.outbound_proxy_primary}</P503>
@@ -2001,7 +1957,7 @@
     <!-- # Backup Outbound Proxy -->
     <!-- # String -->
 
-{if $account.3.sip_transport != 'dns srv' && isset($account.3.outbound_proxy_secondary)}
+{if isset($account.3.outbound_proxy_secondary)}
     <P2533>{$account.3.outbound_proxy_secondary}:{$account.3.sip_port}</P2533>
 {else}
     <P2533>{$account.3.outbound_proxy_secondary}</P2533>
@@ -2029,7 +1985,7 @@
     <!-- 	 -->
     <!-- # Voice Mail UserID -->
     <!-- # String -->
-    <P526>{$voicemail_number}</P526>
+    <P526>*97</P526>
 
     <!-- # Account Display -->
     <!-- # Number: 0, 1. 0 - User Name, 1 - User ID. Default is 0 -->
@@ -2870,35 +2826,19 @@
 
     <!-- #Do Not Disturb (DND) - On -->
     <!-- # String -->
-    {if isset($account.3.password)}
-        <P2544>*78</P2544>
-    {else}
-        <P2544></P2544>
-    {/if}
+    <P2544></P2544>
 
     <!-- #Do Not Disturb (DND) - Off -->
     <!-- # String -->
-    {if isset($account.3.password)}
-        <P2545>*79</P2545>
-    {else}
-        <P2545></P2545>
-    {/if}
+    <P2545></P2545>
 
     <!-- #Call Forward Unconditionally (All) - On -->
     <!-- # String -->
-    {if isset($account.3.password)}
-        <P26213>*72</P26213>
-    {else}
-        <P26213></P26213>
-    {/if}
+    <P26213></P26213>
 
     <!-- #Call Forward Unconditionally (All) - Off -->
     <!-- # String -->
-    {if isset($account.3.password)}
-        <P26214>*73</P26214>
-    {else}
-        <P26214></P26214>
-    {/if}
+    <P26214></P26214>
 
     <!-- #Call Forward Busy - On -->
     <!-- # String -->
@@ -2942,16 +2882,12 @@
 
     <!-- # SIP Server -->
     <!-- # String -->
-{if $account.4.sip_transport != 'dns srv'}
     <P602>{$account.4.server_address}:{$account.4.sip_port}</P602>
-{else}
-    <P602>{$account.4.server_address}</P602>
-{/if}
 
     <!-- # Secondary SIP Server -->
     <!-- # String -->
     
-{if $account.4.sip_transport != 'dns srv' && isset($account.4.server_address_secondary)}
+{if isset($account.4.server_address_secondary)}
     <P2612>{$account.4.server_address_secondary}:{$account.4.sip_port}</P2612>
 {else}
     <P2612>{$account.4.server_address_secondary}</P2612>
@@ -2960,7 +2896,7 @@
     <!-- # Outbound Proxy -->
     <!-- # String -->
     
-{if $account.4.sip_transport != 'dns srv' && isset($account.4.outbound_proxy_primary)}
+{if isset($account.4.outbound_proxy_primary)}
     <P603>{$account.4.outbound_proxy_primary}:{$account.4.sip_port}</P603>
 {else}
     <P603>{$account.4.outbound_proxy_primary}</P603>
@@ -2969,7 +2905,7 @@
     <!-- # Backup Outbound Proxy -->
     <!-- # String -->
     
-{if $account.4.sip_transport != 'dns srv' && isset($account.4.outbound_proxy_secondary)}
+{if isset($account.4.outbound_proxy_secondary)}
     <P2633>{$account.4.outbound_proxy_secondary}:{$account.4.sip_port}</P2633>
 {else}
     <P2633>{$account.4.outbound_proxy_secondary}</P2633>
@@ -2997,7 +2933,7 @@
 
     <!-- # Voice Mail UserID -->
     <!-- # String -->
-    <P626>{$voicemail_number}</P626>
+    <P626>*97</P626>
 
     <!-- # Account Display -->
     <!-- # Number: 0, 1. 0 - User Name, 1 - User ID. Default is 0 -->
@@ -3841,35 +3777,19 @@
 
     <!-- #Do Not Disturb (DND) - On -->
     <!-- # String -->
-    {if isset($account.4.password)}
-        <P2644>*78</P2644>
-    {else}
-        <P2644></P2644>
-    {/if}
+    <P2644></P2644>
 
     <!-- #Do Not Disturb (DND) - Off -->
     <!-- # String -->
-    {if isset($account.4.password)}
-        <P2645>*79</P2645>
-    {else}
-        <P2645></P2645>
-    {/if}
+    <P2645></P2645>
 
     <!-- #Call Forward Unconditionally (All) - On -->
     <!-- # String -->
-    {if isset($account.4.password)}
-        <P26313>*72</P26313>
-    {else}
-        <P26313></P26313>
-    {/if}
+    <P26313></P26313>
 
     <!-- #Call Forward Unconditionally (All) - Off -->
     <!-- # String -->
-    {if isset($account.4.password)}
-        <P26314>*73</P26314>
-    {else}
-        <P26314></P26314>
-    {/if}
+    <P26314></P26314>
 
     <!-- #Call Forward Busy - On -->
     <!-- # String -->
@@ -3913,16 +3833,12 @@
 
     <!-- # SIP Server -->
     <!-- # String -->
-{if $account.5.sip_transport != 'dns srv'}
     <P702>{$account.5.server_address}:{$account.5.sip_port}</P702>
-{else}
-    <P702>{$account.5.server_address}</P702>
-{/if}
 
     <!-- # Secondary SIP Server -->
     <!-- # String -->
 
-{if $account.5.sip_transport != 'dns srv' && isset($account.5.server_address_secondary)}
+{if isset($account.5.server_address_secondary)}
     <P2712>{$account.5.server_address_secondary}:{$account.5.sip_port}</P2712>
 {else}
     <P2712>{$account.5.server_address_secondary}</P2712>
@@ -3931,7 +3847,7 @@
     <!-- # Outbound Proxy -->
     <!-- # String -->
 
-{if $account.5.sip_transport != 'dns srv' && isset($account.5.outbound_proxy_primary)}
+{if isset($account.5.outbound_proxy_primary)}
     <P703>{$account.5.outbound_proxy_primary}:{$account.5.sip_port}</P703>
 {else}
     <P703>{$account.5.outbound_proxy_primary}</P703>
@@ -3940,7 +3856,7 @@
     <!-- # Backup Outbound Proxy -->
     <!-- # String -->
 
-{if $account.5.sip_transport != 'dns srv' && isset($account.5.outbound_proxy_secondary)}
+{if isset($account.5.outbound_proxy_secondary)}
     <P2733>{$account.5.outbound_proxy_secondary}:{$account.5.sip_port}</P2733>
 {else}
     <P2733>{$account.5.outbound_proxy_secondary}</P2733>
@@ -3968,7 +3884,7 @@
 
     <!-- # Voice Mail UserID -->
     <!-- # String -->
-    <P1726>{$voicemail_number}</P1726>
+    <P1726>*97</P1726>
 
     <!-- # Account Display -->
     <!-- # Number: 0, 1. 0 - User Name, 1 - User ID. Default is 0 -->
@@ -4809,35 +4725,19 @@
 
     <!-- #Do Not Disturb (DND) - On -->
     <!-- # String -->
-    {if isset($account.5.password)}
-        <P2744>*78</P2744>
-    {else}
-        <P2744></P2744>
-    {/if}
+    <P2744></P2744>
 
     <!-- #Do Not Disturb (DND) - Off -->
     <!-- # String -->
-    {if isset($account.5.password)}
-        <P2745>*79</P2745>
-    {else}
-        <P2745></P2745>
-    {/if}
+    <P2745></P2745>
 
     <!-- #Call Forward Unconditionally (All) - On -->
     <!-- # String -->
-    {if isset($account.5.password)}
-        <P26413>*72</P26413>
-    {else}
-        <P26413></P26413>
-    {/if}
+    <P26413></P26413>
 
     <!-- #Call Forward Unconditionally (All) - Off -->
     <!-- # String -->
-    {if isset($account.5.password)}
-        <P26414>*73</P26414>
-    {else}
-        <P26414></P26414>
-    {/if}
+    <P26414></P26414>
 
     <!-- #Call Forward Busy - On -->
     <!-- # String -->
@@ -4866,7 +4766,7 @@
     <!-- # Internet Protocol. 0 - Both, prefer IPv4, 1 - Both, prefer IPv6, 2 - IPv4 Only, 3 - IPv6 Only. Default is 0 -->
     <!-- # Number: 0, 1, 2, 3 -->
     <!-- # Mandatory -->
-    {if isset($grandstream_ipv_mode)}<P1415>{$grandstream_ipv_mode}</P1415>{else}<P1415>0</P1415>{/if}
+    <P1415>0</P1415>
 
     <!-- # IP Address Mode. 0 - DHCP, 1 - Static IP, 2 - PPPoE. Default is 0 -->
     <!-- # Number: 0, 1, 2 -->
@@ -7126,9 +7026,7 @@
     <!-- # Always Ring Speaker. 0 - No, 1 - Yes. Default is 0 -->
     <!-- # Number: 0, 1 -->
     <!-- # Mandatory -->
-{if isset($grandstream_headset_ring)}
-    <P1439>{$grandstream_headset_ring}</P1439>
-{/if}
+    <P1439>0</P1439>
 
     <!-- # Group Listen with Speaker. 0 - No, 1 - Yes. Default is 0 -->
     <!-- # Number: 0, 1 -->
@@ -7185,7 +7083,7 @@
     <!-- # When set to Yes(1), it will override the configured NTP server -->
     <!-- # Number: 0, 1 -->
     <!-- # Mandatory -->
-    <P144>0</P144>
+    <P144>1</P144>
 
     <!-- # Time Zone -->
 
@@ -7264,7 +7162,7 @@
     <!-- # When set to Yes(1), it will override the configured Time Zone setting if available  -->
     <!-- # Number: 0, 1 -->
     <!-- # Mandatory -->
-    <P143>0</P143>
+    <P143>1</P143>
 
     <!-- # Self Defined Time zone. Max length allowed is 64 characters -->
     <!-- # String -->

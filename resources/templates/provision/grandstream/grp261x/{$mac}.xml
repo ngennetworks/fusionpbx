@@ -370,7 +370,7 @@
 
 		<!-- Accept Incoming SIP from Proxy Only  -->
 		<!-- Yes, No -->
-		<item name="account.{$line}.sip.validate.incomingServer">Yes</item>
+		<item name="account.{$line}.sip.validate.incomingServer">No</item>
 
 		<!-- Authenticate Incoming INVITE -->
 		<!-- Yes, No -->
@@ -737,17 +737,7 @@
 		<!-- Ethernet Settings -->
 		<!-- Preferred Internet Protocol -->
 		<!-- BothAndPreferIPv4, BothAndPreferIPv6, IPv4Only, IPv6Only -->
-		{if $grandstream_ipv_mode=='0'}
-		    <item name="network.internetProtocol">BothAndPreferIPv4</item>
-		    {elseif $grandstream_ipv_mode=='1'}
-		    <item name="network.internetProtocol">BothAndPreferIPv6</item>
-		    {elseif $grandstream_ipv_mode=='2'}
-		    <item name="network.internetProtocol">IPv4Only</item>
-		    {elseif $grandstream_ipv_mode=='3'}
-		    <item name="network.internetProtocol">IPv6Only</item>
-		    {else}
-		    <item name="network.internetProtocol">BothAndPreferIPv4</item>
-		{/if}
+		<item name="network.internetProtocol">IPv4Only</item>
 
 		<!-- IPv4 Address Type -->
 		<!-- DHCP, StaticIP, PPPoE -->

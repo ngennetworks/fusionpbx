@@ -62,6 +62,9 @@
 			$dest = check_str($_GET['dest']);
 			$dest_cid_name = check_str($_GET['dest_cid_name']);
 			$dest_cid_number = check_str($_GET['dest_cid_number']);
+			$search = array("&plus;");
+			$replace = array("+");
+			$dest_cid_number = str_replace($search, $replace, $dest_cid_number);
 
 			$auto_answer = check_str($_GET['auto_answer']); //true,false
 			$rec = check_str($_GET['rec']); //true,false
@@ -71,6 +74,9 @@
 		//clean up variable values
 			$src = str_replace(array('.','(',')','-',' '), '', $src);
 			$dest = (strpbrk($dest, '@') != FALSE) ? str_replace(array('(',')',' '), '', $dest) : str_replace(array('.','(',')','-',' '), '', $dest); //don't strip periods or dashes in sip-uri calls, only phone numbers
+			$search = array("&plus;");
+			$replace = array("+");
+			$dest = str_replace($search, $replace, $dest);
 
 		//adjust variable values
 			$sip_auto_answer = ($auto_answer == "true") ? ",sip_auto_answer=true" : null;

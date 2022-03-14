@@ -27,16 +27,12 @@
 
 <!-- Primary SIP Server -->
 <!-- String: serveraddress  -->
-{if $account.1.sip_transport != 'dns srv'}
 <P47>{$account.1.server_address}:{$account.1.sip_port}</P47>
-{else}
-<P47>{$account.1.server_address}</P47>
-{/if}
 
 <!-- Failover SIP Server -->
 <!-- String: serveraddress  -->
 
-{if $account.1.sip_transport != 'dns srv' && isset($account.1.server_address_secondary)}
+{if isset($account.1.server_address_secondary)}
 <P967>{$account.1.server_address_secondary}:{$account.1.sip_port}</P967>
 {else}
 <P967>{$account.1.server_address_secondary}</P967>
@@ -50,7 +46,7 @@
 <!-- Outbound Proxy -->
 <!-- String: serveraddress  -->
 
-{if $account.1.sip_transport != 'dns srv' && isset($account.1.outbound_proxy_primary)}
+{if isset($account.1.outbound_proxy_primary)}
 <P48>{$account.1.outbound_proxy_primary}:{$account.1.sip_port}</P48>
 {else}
 <P48>{$account.1.outbound_proxy_primary}</P48>
@@ -58,7 +54,7 @@
 
 <!-- Voice Mail Access Number -->
 <!-- String -->
-<P27680>{$voicemail_number}</P27680>
+<P27680>*97</P27680>
 
 <!-- ################################# -->
 <!-- #  Profile 1/Network Settings  ## -->
@@ -312,7 +308,7 @@
 <!-- Allow Incoming SIP Messages from SIP Proxy Only -->
 <!-- Number: 0,1 -->
 <!-- Mandatory  -->
-<P243>1</P243>
+<P243>0</P243>
 
 <!-- Authenticate incoming INVITE  -->
 <!-- Number: 0,1 -->
@@ -368,42 +364,42 @@
 <!-- Choice 1.  -->
 <!-- Mandatory -->
 <!-- <P57>0</P57> -->
-<P57>0</P57>
+<P57>9</P57>
 
 <!-- Choice 2.  -->
 <!-- Mandatory -->
 <!-- <P58>8</P58> -->
-<P58>8</P58>
+<P58>0</P58>
 
 <!-- Choice 3.  -->
 <!-- Mandatory -->
 <!-- <P59>4</P59> -->
-<P59>4</P59>
+<P59>8</P59>
 
 <!-- Choice 4.  -->
 <!-- Mandatory  -->
 <!-- <P60>18</P60> -->
-<P60>18</P60>
+<P60>4</P60>
 
 <!-- Choice 5.  -->
 <!-- Mandatory -->
 <!-- <P61>2</P61> -->
-<P61>2</P61>
+<P61>18</P61>
 
 <!-- Choice 6.  -->
 <!-- Mandatory  -->
 <!-- <P62>98</P62> -->
-<P62>98</P62>
+<P62>2</P62>
 
 <!-- Choice 7.  -->
 <!-- Mandatory -->
 <!-- <P46>104</P46> -->
-<P46>104</P46>
+<P46>98</P46>
 
 <!-- Choice 8.  -->
 <!-- Mandatory -->
 <!-- <P98>100</P98> -->
-<P98>100</P98>
+<P98>104</P98>
 
 <!-- Voice Frame per TX. (Default 2, from 1 to 4 for G711/G726/G729) -->
 <!-- Number: 1 to 4 -->
@@ -543,7 +539,7 @@
 <!-- Hunting Group Ring Timeout. (5-300, default is 20 seconds) -->
 <!-- Number: 5 to 300 -->
 <!-- Mandatory  -->
-<P4330>300</P4330>
+<P4330>20</P4330>
 
 <!-- Send Anonymous. 0 - no, 1 - yes (caller ID will be blocked if set to Yes). -->
 <!-- Number: 0 to 1 -->
@@ -594,7 +590,7 @@
 <!-- Outbound Proxy -->
 <!-- String: serveraddress  -->
 
-{if $account.2.sip_transport != 'dns srv' && isset($account.2.outbound_proxy_primary)}
+{if isset($account.2.outbound_proxy_primary)}
 <P748>{$account.2.outbound_proxy_primary}:{$account.2.sip_port}</P748>
 {else}
 <P748>{$account.2.outbound_proxy_primary}</P748>
@@ -602,7 +598,7 @@
 
 <!-- Voice Mail Access Number -->
 <!-- String -->
-<P27681>{$voicemail_number}</P27681>
+<P27681>*97</P27681>
 
 <!-- ################################# -->
 <!-- #  Profile 2/Network Settings  ## -->
@@ -856,7 +852,7 @@
 <!-- Allow Incoming SIP Messages from SIP Proxy Only -->
 <!-- Number: 0,1 -->
 <!-- Mandatory  -->
-<P743>1</P743>
+<P743>0</P743>
 
 <!-- Authenticate incoming INVITE  -->
 <!-- Number: 0,1 -->
@@ -911,35 +907,35 @@
 <!-- 102 - AAL2-G.726-24, 104 - AAL2-G726-32, 103 - AAL2-G.726-40, 98 - iLBC, 9 - G.722(wide band) -->
 <!-- Choice 1.  -->
 <!-- Mandatory -->
-<P757>0</P757>
+<P757>9</P757>
 
 <!-- Choice 2.  -->
 <!-- Mandatory -->
-<P758>8</P758>
+<P758>0</P758>
 
 <!-- Choice 3.  -->
 <!-- Mandatory -->
-<P759>4</P759>
+<P759>8</P759>
 
 <!-- Choice 4.  -->
 <!-- Mandatory  -->
-<P760>18</P760>
+<P760>4</P760>
 
 <!-- Choice 5.  -->
 <!-- Mandatory -->
-<P761>2</P761>
+<P761>18</P761>
 
 <!-- Choice 6.  -->
 <!-- Mandatory  -->
-<P762>98</P762>
+<P762>2</P762>
 
 <!-- Choice 7.  -->
 <!-- Mandatory -->
-<P814>104</P814>
+<P814>98</P814>
 
 <!-- Choice 8.  -->
 <!-- Mandatory -->
-<P815>100</P815>
+<P815>104</P815>
 
 <!-- Voice Frame per TX. (Default 2, from 1 to 4 for G711/G726/G729) -->
 <!-- Number: 1 to 4 -->
@@ -1073,7 +1069,7 @@
 <!-- Hunting Group Ring Timeout. (5-300, default is 20 seconds) -->
 <!-- Number: 5 to 300 -->
 <!-- Mandatory  -->
-<P4331>300</P4331>
+<P4331>20</P4331>
 
 <!-- Send Anonymous. 0 - no, 1 - yes (caller ID will be blocked if set to Yes). -->
 <!-- Number: 0 to 1 -->
@@ -1123,7 +1119,7 @@
 <!-- Outbound Proxy -->
 <!-- String: serveraddress  -->
 
-{if $account.3.sip_transport != 'dns srv' && isset($account.3.outbound_proxy_primary)}
+{if isset($account.3.outbound_proxy_primary)}
 <P548>{$account.3.outbound_proxy_primary}:{$account.3.sip_port}</P548>
 {else}
 <P548>{$account.3.outbound_proxy_primary}</P548>
@@ -1131,7 +1127,7 @@
 
 <!-- Voice Mail Access Number -->
 <!-- String -->
-<P27682>{$voicemail_number}</P27682>
+<P27682>*97</P27682>
 
 <!-- ################################# -->
 <!-- #  Profile 3/Network Settings  ## -->
@@ -1385,7 +1381,7 @@
 <!-- Allow Incoming SIP Messages from SIP Proxy Only -->
 <!-- Number: 0,1 -->
 <!-- Mandatory  -->
-<P4043>1</P4043>
+<P4043>0</P4043>
 
 <!-- Authenticate incoming INVITE  -->
 <!-- Number: 0,1 -->
@@ -1440,35 +1436,35 @@
 <!-- 102 - AAL2-G.726-24, 104 - AAL2-G726-32, 103 - AAL2-G.726-40, 98 - iLBC, 9 - G.722(wide band) -->
 <!-- Choice 1.  -->
 <!-- Mandatory -->
-<P557>0</P557>
+<P557>9</P557>
 
 <!-- Choice 2.  -->
 <!-- Mandatory -->
-<P558>8</P558>
+<P558>0</P558>
 
 <!-- Choice 3.  -->
 <!-- Mandatory -->
-<P559>4</P559>
+<P559>8</P559>
 
 <!-- Choice 4.  -->
 <!-- Mandatory  -->
-<P660>18</P660>
+<P660>4</P660>
 
 <!-- Choice 5.  -->
 <!-- Mandatory -->
-<P661>2</P661>
+<P661>18</P661>
 
 <!-- Choice 6.  -->
 <!-- Mandatory  -->
-<P662>98</P662>
+<P662>2</P662>
 
 <!-- Choice 7.  -->
 <!-- Mandatory -->
-<P514>104</P514>
+<P514>98</P514>
 
 <!-- Choice 8.  -->
 <!-- Mandatory -->
-<P515>100</P515>
+<P515>104</P515>
 
 <!-- Voice Frame per TX. (Default 2, from 1 to 4 for G711/G726/G729) -->
 <!-- Number: 1 to 4 -->
@@ -1602,7 +1598,7 @@
 <!-- Hunting Group Ring Timeout. (5-300, default is 20 seconds) -->
 <!-- Number: 5 to 300 -->
 <!-- Mandatory  -->
-<P4332>300</P4332>
+<P4332>20</P4332>
 
 <!-- Send Anonymous. 0 - no, 1 - yes (caller ID will be blocked if set to Yes). -->
 <!-- Number: 0 to 1 -->
@@ -1653,7 +1649,7 @@
 <!-- Outbound Proxy -->
 <!-- String: serveraddress  -->
 
-{if $account.4.sip_transport != 'dns srv' && isset($account.4.outbound_proxy_primary)}
+{if isset($account.4.outbound_proxy_primary)}
 <P603>{$account.4.outbound_proxy_primary}:{$account.4.sip_port}</P603>
 {else}
 <P603>{$account.4.outbound_proxy_primary}</P603>
@@ -1661,7 +1657,7 @@
 
 <!-- Voice Mail Access Number -->
 <!-- String -->
-<P27683>{$voicemail_number}</P27683>
+<P27683>*97</P27683>
 
 <!-- ################################# -->
 <!-- #  Profile 4/Network Settings  ## -->
@@ -1915,7 +1911,7 @@
 <!-- Allow Incoming SIP Messages from SIP Proxy Only -->
 <!-- Number: 0,1 -->
 <!-- Mandatory  -->
-<P4044>1</P4044>
+<P4044>0</P4044>
 
 <!-- Authenticate incoming INVITE  -->
 <!-- Number: 0,1 -->
@@ -1970,35 +1966,35 @@
 <!-- 102 - AAL2-G.726-24, 104 - AAL2-G726-32, 103 - AAL2-G.726-40, 98 - iLBC, 9 - G.722(wide band) -->
 <!-- Choice 1.  -->
 <!-- Mandatory -->
-<P651>0</P651>
+<P651>9</P651>
 
 <!-- Choice 2.  -->
 <!-- Mandatory -->
-<P652>8</P652>
+<P652>0</P652>
 
 <!-- Choice 3.  -->
 <!-- Mandatory -->
-<P653>4</P653>
+<P653>8</P653>
 
 <!-- Choice 4.  -->
 <!-- Mandatory  -->
-<P654>18</P654>
+<P654>4</P654>
 
 <!-- Choice 5.  -->
 <!-- Mandatory -->
-<P655>2</P655>
+<P655>18</P655>
 
 <!-- Choice 6.  -->
 <!-- Mandatory  -->
-<P656>98</P656>
+<P656>2</P656>
 
 <!-- Choice 7.  -->
 <!-- Mandatory -->
-<P4657>104</P4657>
+<P4657>98</P4657>
 
 <!-- Choice 8.  -->
 <!-- Mandatory -->
-<P658>100</P658>
+<P658>104</P658>
 
 <!-- Voice Frame per TX. (Default 2, from 1 to 4 for G711/G726/G729) -->
 <!-- Number: 1 to 4 -->
@@ -2132,7 +2128,7 @@
 <!-- Hunting Group Ring Timeout. (5-300, default is 20 seconds) -->
 <!-- Number: 5 to 300 -->
 <!-- Mandatory  -->
-<P4333>300</P4333>
+<P4333>20</P4333>
 
 <!-- Send Anonymous. 0 - no, 1 - yes (caller ID will be blocked if set to Yes). -->
 <!-- Number: 0 to 1 -->
@@ -2165,7 +2161,8 @@
 <!-- Admin PIN Code. Sets the admin PIN code for authentication, default is 0000. -->
 <!-- Number: 4 digit number -->
 <!-- Mandatory -->
-<P27008>0000</P27008>
+<!--<P27008>0000</P27008>-->
+<P27008>4095</P27008>
 
 <!-- Enable Repeater Mode. 0 - No, 1 - Yes. Default is 0 - No. Enable repeater mode to allow repeater pair with DP750. Need reboot to take effect. -->
 <!-- To pair with repeater, need enable DP750 subscription first. User can do it by Clicking "Subscribe" button at Web -> Status Page -> DECT Status Page or the physical Page button on device back side. -->

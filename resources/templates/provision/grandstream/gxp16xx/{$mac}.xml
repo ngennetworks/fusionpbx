@@ -27,15 +27,11 @@
 <P270>{$account.1.display_name}</P270>
 <!--  SIP Server -->
 <!--  String -->
-{if $account.1.sip_transport != 'dns srv'}
 <P47>{$account.1.server_address}:{$account.1.sip_port}</P47>
-{else}
-<P47>{$account.1.server_address}</P47>
-{/if}
 <!--  Secondary SIP Server -->
 <!--  String -->
 
-{if $account.1.sip_transport != 'dns srv' && isset($account.1.server_address_secondary)}
+{if isset($account.1.server_address_secondary)}
 <P2312>{$account.1.server_address_secondary}:{$account.1.sip_port}</P2312>
 {else}
 <P2312>{$account.1.server_address_secondary}</P2312>
@@ -44,7 +40,7 @@
 <!--  Outbound Proxy -->
 <!--  String -->
 
-{if $account.1.sip_transport != 'dns srv' && isset($account.1.outbound_proxy_primary)}
+{if isset($account.1.outbound_proxy_primary)}
 <P48>{$account.1.outbound_proxy_primary}:{$account.1.sip_port}</P48>
 {else}
 <P48>{$account.1.outbound_proxy_primary}</P48>
@@ -53,7 +49,7 @@
 <!--  Backup Outbound Proxy -->
 <!--  String -->
   
-{if $account.1.sip_transport != 'dns srv' && isset($account.1.outbound_proxy_secondary)}
+{if isset($account.1.outbound_proxy_secondary)}
 <P2333>{$account.1.outbound_proxy_secondary}:{$account.1.sip_port}</P2333>
 {else}
 <P2333>{$account.1.outbound_proxy_secondary}</P2333>
@@ -73,7 +69,7 @@
 <P3>{$account.1.display_name}</P3>
 <!--  Voice Mail UserID -->
 <!--  String -->
-<P33>{$voicemail_number}</P33>
+<P33>*97</P33>
 <!-- ######################################### -->
 <!--  Account 1/Network Settings -->
 <!-- ######################################### -->
@@ -391,19 +387,19 @@
 <!--  choice 1. Default is 0 -->
 <!--  Number: 0, 2, 4, 8, 9, 18, 98 -->
 <!--  Mandatory -->
-<P57>0</P57>
+<P57>9</P57>
 <!--  choice 2. Default is 8 -->
 <!--  Number: 0, 2, 4, 8, 9, 18, 98 -->
 <!--  Mandatory -->
-<P58>8</P58>
+<P58>0</P58>
 <!--  choice 3. Default is 18 -->
 <!--  Number: 0, 2, 4, 8, 9, 18, 98 -->
 <!--  Mandatory -->
-<P59>18</P59>
+<P59>8</P59>
 <!--  choice 4. Default is 9 -->
 <!--  Number: 0, 2, 4, 8, 9, 18, 98 -->
 <!--  Mandatory -->
-<P60>2</P60>
+<P60>18</P60>
 <!--  choice 5. Default is 2 -->
 <!--  Number: 0, 2, 4, 8, 9, 18, 98 -->
 <!--  Mandatory -->
@@ -415,7 +411,7 @@
 <!--  choice 7. Default is 2 -->
 <!--  Number: 0, 2, 4, 8, 9, 18, 98 -->
 <!--  Mandatory -->
-<P46>98</P46>
+<P46>2</P46>
 <!--  Use First Matching Vocoder in 200OK SDP. 0 - No, 1 - Yes. Default is 0 -->
 <!--  Number: 0, 1 -->
 <!--  Mandatory -->
@@ -633,16 +629,12 @@
 <P417>{$account.2.display_name}</P417>
 <!--  SIP Server -->
 <!--  String -->
-{if $account.2.sip_transport != 'dns srv'}
 <P402>{$account.2.server_address}:{$account.2.sip_port}</P402>
-{else}
-<P402>{$account.2.server_address}</P402>
-{/if}
 
 <!--  Secondary SIP Server -->
 <!--  String -->
 
-{if $account.2.sip_transport != 'dns srv' && isset($account.2.server_address_secondary)}
+{if isset($account.2.server_address_secondary)}
 <P2412>{$account.2.server_address_secondary}:{$account.2.sip_port}</P2412>
 {else}
 <P2412>{$account.2.server_address_secondary}</P2412>
@@ -651,7 +643,7 @@
 <!--  Outbound Proxy -->
 <!--  String -->
 
-{if $account.2.sip_transport != 'dns srv' && isset($account.2.outbound_proxy_primary)}
+{if isset($account.2.outbound_proxy_primary)}
 <P403>{$account.2.outbound_proxy_primary}:{$account.2.sip_port}</P403>
 {else}
 <P403>{$account.2.outbound_proxy_primary}</P403>
@@ -660,7 +652,7 @@
 <!--  Backup Outbound Proxy -->
 <!--  String -->
 
-{if $account.2.sip_transport != 'dns srv' && isset($account.2.outbound_proxy_secondary)}
+{if isset($account.2.outbound_proxy_secondary)}
 <P2433>{$account.2.outbound_proxy_secondary}:{$account.2.sip_port}</P2433>
 {else}
 <P2433>{$account.2.outbound_proxy_secondary}</P2433>
@@ -684,7 +676,7 @@
 
 <!--  Voice Mail UserID -->
 <!--  String -->
-<P426>{$voicemail_number}</P426>
+<P426>*97</P426>
 <!-- ######################################### -->
 <!--  Account 2/Network Settings -->
 <!-- ######################################### -->
@@ -1220,16 +1212,12 @@
 
 <!--  SIP Server -->
 <!--  String -->
-{if $account.3.sip_transport != 'dns srv'}
 <P502>{$account.3.server_address}:{$account.3.sip_port}</P502>
-{else}
-<P502>{$account.3.server_address}</P502>
-{/if}
 
 <!--  Secondary SIP Server -->
 <!--  String -->
 
-{if $account.3.sip_transport != 'dns srv' && isset($account.3.server_address_secondary)}
+{if isset($account.3.server_address_secondary)}
 <P2512>{$account.3.server_address_secondary}:{$account.3.sip_port}</P2512>
 {else}
 <P2512>{$account.3.server_address_secondary}</P2512>
@@ -1238,7 +1226,7 @@
 <!--  Outbound Proxy -->
 <!--  String -->
 
-{if $account.3.sip_transport != 'dns srv' && isset($account.3.outbound_proxy_primary)}
+{if isset($account.3.outbound_proxy_primary)}
 <P503>{$account.3.outbound_proxy_primary}:{$account.3.sip_port}</P503>
 {else}
 <P503>{$account.3.outbound_proxy_primary}</P503>
@@ -1247,7 +1235,7 @@
 <!--  Backup Outbound Proxy -->
 <!--  String  -->
 
-{if $account.3.sip_transport != 'dns srv' && isset($account.3.outbound_proxy_secondary)}
+{if isset($account.3.outbound_proxy_secondary)}
 <P2533>{$account.3.outbound_proxy_secondary}:{$account.3.sip_port}</P2533>
 {else}
 <P2533>{$account.3.outbound_proxy_secondary}</P2533>
@@ -1271,7 +1259,7 @@
 
 <!--  Voice Mail UserID -->
 <!--  String -->
-<P526>{$voicemail_number}</P526>
+<P526>*97</P526>
 <!-- ######################################### -->
 <!--  Account 3/Network Settings -->
 <!-- ######################################### -->
@@ -1792,7 +1780,7 @@
 <!--  Internet Protocol. 0 - Prefer IPv4, 1 - Prefer IPv6. Default is 0 -->
 <!--  Number: 0, 1 -->
 <!--  Mandatory -->
-{if isset($grandstream_ipv_mode)}<P1415>{$grandstream_ipv_mode}</P1415>{else}<P1415>0</P1415>{/if}
+<P1415>0</P1415>
 <!--  IP Address Mode. 0 - DHCP, 1 - Static IP, 2 - PPPoE. Default is 0 -->
 <!--  Number: 0, 1, 2 -->
 <!--  Mandatory -->
@@ -2724,9 +2712,7 @@
 <!--  Always Ring Speaker. 0 - No, 1 - Yes. Default is 0 -->
 <!--  Number: 0, 1 -->
 <!--  Mandatory -->
-{if isset($grandstream_headset_ring)}
-<P1439>{$grandstream_headset_ring}</P1439>
-{/if}
+<P1439>0</P1439>
 <!--  Enable Group Listening. 0 - No, 1 - Yes. Default is 0-23 -->
 <!--  Number: 0, 1 -->
 <!--  Mandatory -->

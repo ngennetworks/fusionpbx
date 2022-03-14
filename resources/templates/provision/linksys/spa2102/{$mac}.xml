@@ -2,6 +2,10 @@
 <Profile_Rule>http://{$domain_name}{$project_path}/app/provision/?mac=$MA&amp;password={$password}</Profile_Rule>
 <Resync_Periodic>0</Resync_Periodic>
 
+<Resync_On_Reset ua="na">Yes</Resync_On_Reset>
+<Admin_Password>{$linksys_admin_password}</Admin_Password>
+<User_Password>{$linksys_user_password}</User_Password>
+
 <!--<GPP_B>{$v_agent}</GPP_B>-->
 <!--Sets the time. Dunno what else.-->
 <Primary_NTP_Server>{$ntp_server_primary}</Primary_NTP_Server>
@@ -18,9 +22,10 @@
 <Proxy_1_>{$account.1.server_address}</Proxy_1_>
 <Display_Name_1_>{$account.1.display_name}</Display_Name_1_>
 <User_ID_1_>{$account.1.user_id}</User_ID_1_>
+<Auth_ID_1_>{$account.1.auth_id}</Auth_ID_1_>
 <Password_1_>{$account.1.password}</Password_1_>
-<Use_Auth_ID_1_>No</Use_Auth_ID_1_>
-<Preferred_Codec_1_>G729a</Preferred_Codec_1_>
+<Use_Auth_ID_1_>Yes</Use_Auth_ID_1_>
+<Preferred_Codec_1_>G711u</Preferred_Codec_1_>
 <Register_Expires_1_>{$account.1.register_expires}</Register_Expires_1_><!--*9 will perform intercom and call the other line on the box. There is no other way, from my testing to call from jack to jack on the box, without without the media being proxied.-->
 <Dial_Plan_1_>
 (1xxx[2-9]xxxxxxS0|[*#x]x.)
@@ -30,9 +35,10 @@
 <Proxy_2_>{$account.2.server_address}</Proxy_2_>
 <Display_Name_2_>{$account.2.display_name}</Display_Name_2_>
 <User_ID_2_>{$account.2.user_id}</User_ID_2_>
+<Auth_ID_2_>{$account.2.auth_id}</Auth_ID_2_>
 <Password_2_>{$account.2.password}</Password_2_>
-<Use_Auth_ID_2_>No</Use_Auth_ID_2_>
-<Preferred_Codec_2_>G729a</Preferred_Codec_2_>
+<Use_Auth_ID_2_>Yes</Use_Auth_ID_2_>
+<Preferred_Codec_2_>G711u</Preferred_Codec_2_>
 <Register_Expires_2_>{$account.2.register_expires}</Register_Expires_2_>
 <Dial_Plan_2_>
 (1xxx[2-9]xxxxxxS0|[*#x]x.)

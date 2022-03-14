@@ -38,7 +38,7 @@
 <P34>{$account.1.password}</P34>
 
 <!-- Voice Mail Access Number -->
-<!--<P33>{$voicemail_number}</P33> -->
+<!--<P33>*97</P33> -->
 <P33>*98</P33>
 
 <!-- Name (Display Name, e.g., John Doe) -->
@@ -64,7 +64,7 @@
 
 <!-- DNS Mode. 0 - A Record, 1 - SRV, 2 - NAPTR/SRV. Default value is 0 -->
 <!-- Number: 0, 1, 2 -->
-<P103>0</P103>
+<P103>1</P103>
 
 <!-- NAT Traversal. 0 - NAT No, 1 - STUN, 2 - Keep-alive, 3 - UPnP, 4 - Auto, 5 - VPN. Default value is 2 -->
 <!-- Number: 0, 1, 2, 3, 4, 5 -->
@@ -113,7 +113,7 @@
 
 <!-- Local SIP Port. Default value is 5060 -->
 <!-- Number: 5 - 65535 -->
-<P40>5060</P40>
+<P40>5080</P40>
 
 <!-- SIP Transport -->
 <!-- 0 - UDP , 1 - TCP, 2 - TLS. Default value is 0 -->
@@ -139,40 +139,42 @@
 <!-- Preferred Vocoder -->
 <!-- First codec. 0 - PCMU, 8 - PCMA, 9 - G.722, 2 - G.726-32, 18 - G729A/B, 98 - iLBC, 123 - Opus. Default value is 0 -->
 <!-- Number: 0, 8, 9, 2, 18, 98, 123 -->
-<P57>9</P57>
+<P57>123</P57>
 
 <!-- Second codec. 0 - PCMU, 8 - PCMA, 9 - G.722, 2 - G.726-32, 18 - G729A/B, 98 - iLBC, 123 - Opus. Default value is 8 -->
 <!-- Number: 0, 8, 9, 2, 18, 98, 123 -->
-<P58>0</P58>
+<P58>9</P58>
 
 <!-- Third codec. 0 - PCMU, 8 - PCMA, 9 - G.722, 2 - G.726-32, 18 - G729A/B, 98 - iLBC, 123 - Opus. Default value is 9 -->
 <!-- Number: 0, 8, 9, 2, 18, 98, 123 -->
-<P59>8</P59>
+<P59>0</P59>
 
 <!-- Forth codec. 0 - PCMU, 8 - PCMA, 9 - G.722, 2 - G.726-32, 18 - G729A/B, 98 - iLBC, 123 - Opus. Default value is 9 -->
 <!-- Number: 0, 8, 9, 2, 18, 98, 123 -->
-<P60>98</P60>
+<P60>8</P60>
 
 <!-- Fifth codec. 0 - PCMU, 8 - PCMA, 9 - G.722, 2 - G.726-32, 18 - G729A/B, 98 - iLBC, 123 - Opus. Default value is 9 -->
 <!-- Number: 0, 8, 9, 2, 18, 98, 123 -->
-<P61>2</P61>
+<P61>98</P61>
 
 <!-- Sixth codec. 0 - PCMU, 8 - PCMA, 9 - G.722, 2 - G.726-32, 18 - G729A/B, 98 - iLBC, 123 - Opus. Default value is 9 -->
 <!-- Number: 0, 8, 9, 2, 18, 98, 123 -->
-<P62>9</P62>
+<P62>2</P62>
 
 <!-- Seventh codec. 0 - PCMU, 8 - PCMA, 9 - G.722, 2 - G.726-32, 18 - G729A/B, 98 - iLBC, 123 - Opus. Default value is 9 -->
 <!-- Number: 0, 8, 9, 2, 18, 98, 123 -->
-<P46>9</P46>
+<P46>8</P46>
 
 
 <!-- SRTP Mode. Default value is 0. 0 - Disable, 1 - Enable but not forced, 2 - Enable and forced. -->
 <!-- Number: 0, 1, 2 -->
 <!-- <P183>0</P183> -->
+<P183>1</P183>
 
 <!-- Enable SRTP Key Lifetime. 0 - No, 1 - Yes. -->
 <!-- Number: 0,1 -->
 <!-- <P2363>0</P2363> -->
+<P2363>1</P2363>
 
 <!-- ###################################################################### -->
 <!-- #  Maintenance - Contacts                                           ## -->

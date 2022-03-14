@@ -4,7 +4,7 @@
 <mac>{$mac|replace:'-':''}</mac>
   <config version="1">
     <!-- ########################################################################################## -->
-    <!-- ## Configuration Template For GXP2130/2140/2160/2170/2135 Firmware Version 1.0.10.35    ## -->
+    <!-- ## Configuration Template For GXP2130/2140/2160/2170/2135 Firmware Version 1.0.9.127    ## -->
     <!-- ########################################################################################## -->
 
     <!-- #################################################################### -->
@@ -27,16 +27,12 @@
 
     <!-- # SIP Server -->
     <!-- # String -->
-{if $account.1.sip_transport != 'dns srv'}
     <P47>{$account.1.server_address}:{$account.1.sip_port}</P47>
-{else}
-    <P47>{$account.1.server_address}</P47>
-{/if}
 
     <!-- # Secondary SIP Server -->
     <!-- # String -->
-
-{if $account.1.sip_transport != 'dns srv' && isset($account.1.server_address_secondary)}
+    
+{if isset($account.1.server_address_secondary)}
     <P2312>{$account.1.server_address_secondary}:{$account.1.sip_port}</P2312>
 {else}
     <P2312>{$account.1.server_address_secondary}</P2312>
@@ -44,21 +40,21 @@
 
     <!-- # Outbound Proxy -->
     <!-- # String -->
-
-{if $account.1.sip_transport != 'dns srv' && isset($account.1.outbound_proxy_primary)}
+    
+{if isset($account.1.outbound_proxy_primary)}
     <P48>{$account.1.outbound_proxy_primary}:{$account.1.sip_port}</P48>
 {else}
     <P48>{$account.1.outbound_proxy_primary}</P48>
-{/if}
+{/if}	
 
     <!-- # Backup Outbound Proxy -->
     <!-- # String -->
-
-{if $account.1.sip_transport != 'dns srv' && isset($account.1.outbound_proxy_secondary)}
+    
+{if isset($account.1.outbound_proxy_secondary)}
     <P2333>{$account.1.outbound_proxy_secondary}:{$account.1.sip_port}</P2333>
 {else}
     <P2333>{$account.1.outbound_proxy_secondary}</P2333>
-{/if}
+{/if}	
 
     <!-- # BLF Server -->
     <!-- # String -->
@@ -66,11 +62,7 @@
 
     <!-- # SIP User ID -->
     <!-- # String -->
-{if isset($account.1.server_address_secondary)}
-    <P35>{$account.1.user_id}@{$account.1.server_address}</P35>
-{else}
     <P35>{$account.1.user_id}</P35>
-{/if}
 
     <!-- # Authenticate ID -->
     <!-- # String -->
@@ -86,7 +78,7 @@
 
     <!-- # Voice Mail Access Number -->
     <!-- # String -->
-    <P33>{$voicemail_number}</P33>
+    <P33>*97</P33>
 
     <!-- # Account Display -->
     <!-- # Number: 0, 1. 0 - User Name, 1 - User ID. Default is 0 -->
@@ -993,16 +985,12 @@
 
     <!-- # SIP Server -->
     <!-- # String -->
-{if $account.2.sip_transport != 'dns srv'}
     <P402>{$account.2.server_address}:{$account.2.sip_port}</P402>
-{else}
-    <P402>{$account.2.server_address}</P402>
-{/if}
 
     <!-- # Secondary SIP Server -->
     <!-- # String -->
-
-{if $account.2.sip_transport != 'dns srv' && isset($account.2.server_address_secondary)}
+    
+{if isset($account.2.server_address_secondary)}
     <P2412>{$account.2.server_address_secondary}:{$account.2.sip_port}</P2412>
 {else}
     <P2412>{$account.2.server_address_secondary}</P2412>
@@ -1010,8 +998,8 @@
 
     <!-- # Outbound Proxy -->
     <!-- # String -->
-
-{if $account.2.sip_transport != 'dns srv' && isset($account.2.outbound_proxy_primary)}
+    
+{if isset($account.2.outbound_proxy_primary)}
     <P403>{$account.2.outbound_proxy_primary}:{$account.2.sip_port}</P403>
 {else}
     <P403>{$account.2.outbound_proxy_primary}</P403>
@@ -1019,8 +1007,8 @@
 
     <!-- # Backup Outbound Proxy -->
     <!-- # String -->
-
-{if $account.2.sip_transport != 'dns srv' && isset($account.2.outbound_proxy_secondary)}
+    
+{if isset($account.2.outbound_proxy_secondary)}
     <P2433>{$account.2.outbound_proxy_secondary}:{$account.2.sip_port}</P2433>
 {else}
     <P2433>{$account.2.outbound_proxy_secondary}</P2433>
@@ -1048,7 +1036,7 @@
 
     <!-- # Voice Mail UserID -->
     <!-- # String -->
-    <P426>{$voicemail_number}</P426>
+    <P426>*97</P426>
 
     <!-- # Account Display -->
     <!-- # Number: 0, 1. 0 - User Name, 1 - User ID. Default is 0 -->
@@ -1124,7 +1112,7 @@
     <!-- # Number: 1 - 64800 -->
     <!-- # Mandatory -->
     <P412>{$account.2.register_expires}</P412>
-
+    
 
     <!-- # Subscribe Expiration. Default is 60. Max about 45 days -->
     <!-- # Number: 1 - 64800 -->
@@ -1469,7 +1457,7 @@
     <!-- # Accept Incoming SIP from Proxy Only. 0 - No, 1 - Yes. Default is 0 -->
     <!-- # Number: 0, 1 -->
     <!-- # Mandatory -->
-    <P2447>{$grandstream_accept_sip_from_proxy_only}</P2447>
+    <P2447>1</P2447>
 
     <!-- # Authenticate Incoming INVITE. 0 - No, 1 - Yes. Default is 0 -->
     <!-- # Number: 0, 1 -->
@@ -1946,16 +1934,12 @@
 
     <!-- # SIP Server -->
     <!-- # String -->
-{if $account.3.sip_transport != 'dns srv'}
     <P502>{$account.3.server_address}:{$account.3.sip_port}</P502>
-{else}
-    <P502>{$account.3.server_address}</P502>
-{/if}
 
     <!-- # Secondary SIP Server -->
     <!-- # String -->
-
-{if $account.3.sip_transport != 'dns srv' && isset($account.3.server_address_secondary)}
+    
+{if isset($account.3.server_address_secondary)}
     <P2512>{$account.3.server_address_secondary}:{$account.3.sip_port}</P2512>
 {else}
     <P2512>{$account.3.server_address_secondary}</P2512>
@@ -1964,16 +1948,16 @@
     <!-- # Outbound Proxy -->
     <!-- # String -->
 
-{if $account.3.sip_transport != 'dns srv' && isset($account.3.outbound_proxy_primary)}
+{if isset($account.3.outbound_proxy_primary)}
     <P503>{$account.3.outbound_proxy_primary}:{$account.3.sip_port}</P503>
 {else}
     <P503>{$account.3.outbound_proxy_primary}</P503>
-{/if}
+{/if}	
 
     <!-- # Backup Outbound Proxy -->
     <!-- # String -->
 
-{if $account.3.sip_transport != 'dns srv' && isset($account.3.outbound_proxy_secondary)}
+{if isset($account.3.outbound_proxy_secondary)}
     <P2533>{$account.3.outbound_proxy_secondary}:{$account.3.sip_port}</P2533>
 {else}
     <P2533>{$account.3.outbound_proxy_secondary}</P2533>
@@ -2001,7 +1985,7 @@
     <!-- 	 -->
     <!-- # Voice Mail UserID -->
     <!-- # String -->
-    <P526>{$voicemail_number}</P526>
+    <P526>*97</P526>
 
     <!-- # Account Display -->
     <!-- # Number: 0, 1. 0 - User Name, 1 - User ID. Default is 0 -->
@@ -2898,16 +2882,12 @@
 
     <!-- # SIP Server -->
     <!-- # String -->
-{if $account.4.sip_transport != 'dns srv'}
     <P602>{$account.4.server_address}:{$account.4.sip_port}</P602>
-{else}
-    <P602>{$account.4.server_address}</P602>
-{/if}
 
     <!-- # Secondary SIP Server -->
     <!-- # String -->
-
-{if $account.4.sip_transport != 'dns srv' && isset($account.4.server_address_secondary)}
+    
+{if isset($account.4.server_address_secondary)}
     <P2612>{$account.4.server_address_secondary}:{$account.4.sip_port}</P2612>
 {else}
     <P2612>{$account.4.server_address_secondary}</P2612>
@@ -2915,17 +2895,17 @@
 
     <!-- # Outbound Proxy -->
     <!-- # String -->
-
-{if $account.4.sip_transport != 'dns srv' && isset($account.4.outbound_proxy_primary)}
+    
+{if isset($account.4.outbound_proxy_primary)}
     <P603>{$account.4.outbound_proxy_primary}:{$account.4.sip_port}</P603>
 {else}
     <P603>{$account.4.outbound_proxy_primary}</P603>
-{/if}
+{/if}	
 
     <!-- # Backup Outbound Proxy -->
     <!-- # String -->
-
-{if $account.4.sip_transport != 'dns srv' && isset($account.4.outbound_proxy_secondary)}
+    
+{if isset($account.4.outbound_proxy_secondary)}
     <P2633>{$account.4.outbound_proxy_secondary}:{$account.4.sip_port}</P2633>
 {else}
     <P2633>{$account.4.outbound_proxy_secondary}</P2633>
@@ -2953,7 +2933,7 @@
 
     <!-- # Voice Mail UserID -->
     <!-- # String -->
-    <P626>{$voicemail_number}</P626>
+    <P626>*97</P626>
 
     <!-- # Account Display -->
     <!-- # Number: 0, 1. 0 - User Name, 1 - User ID. Default is 0 -->
@@ -3080,6 +3060,7 @@
     <!-- # Switch Backup Proxy on No Response. 0 - No, 1 - Yes. Default is 0 -->
     <!-- # Number: 0,1 -->
     <!-- # Mandatory -->
+    
     <P26392>0</P26392>
 
     <!-- # SIP Transport. 0 - UDP, 1 - TCP. 2 - TCP/TLS. Default is 0 -->
@@ -3852,16 +3833,12 @@
 
     <!-- # SIP Server -->
     <!-- # String -->
-{if $account.5.sip_transport != 'dns srv'}
     <P1702>{$account.5.server_address}:{$account.5.sip_port}</P1702>
-{else}
-    <P1702>{$account.5.server_address}</P1702>
-{/if}
 
     <!-- # Secondary SIP Server -->
     <!-- # String -->
 
-{if $account.5.sip_transport != 'dns srv' && isset($account.5.server_address_secondary)}
+{if isset($account.5.server_address_secondary)}
     <P2712>{$account.5.server_address_secondary}:{$account.5.sip_port}</P2712>
 {else}
     <P2712>{$account.5.server_address_secondary}</P2712>
@@ -3870,7 +3847,7 @@
     <!-- # Outbound Proxy -->
     <!-- # String -->
 
-{if $account.5.sip_transport != 'dns srv' && isset($account.5.outbound_proxy_primary)}
+{if isset($account.5.outbound_proxy_primary)}
     <P1703>{$account.5.outbound_proxy_primary}:{$account.5.sip_port}</P1703>
 {else}
     <P1703>{$account.5.outbound_proxy_primary}</P1703>
@@ -3879,7 +3856,7 @@
     <!-- # Backup Outbound Proxy -->
     <!-- # String -->
 
-{if $account.5.sip_transport != 'dns srv' && isset($account.5.outbound_proxy_secondary)}
+{if isset($account.5.outbound_proxy_secondary)}
     <P2733>{$account.5.outbound_proxy_secondary}:{$account.5.sip_port}</P2733>
 {else}
     <P2733>{$account.5.outbound_proxy_secondary}</P2733>
@@ -3907,7 +3884,7 @@
 
     <!-- # Voice Mail UserID -->
     <!-- # String -->
-    <P1726>{$voicemail_number}</P1726>
+    <P1726>*97</P1726>
 
     <!-- # Account Display -->
     <!-- # Number: 0, 1. 0 - User Name, 1 - User ID. Default is 0 -->
@@ -4804,16 +4781,12 @@
 
     <!-- # SIP Server -->
     <!-- # String -->
-{if $account.6.sip_transport != 'dns srv'}
     <P1802>{$account.6.server_address}:{$account.6.sip_port}</P1802>
-{else}
-    <P1802>{$account.6.server_address}</P1802>
-{/if}
 
     <!-- # Secondary SIP Server -->
     <!-- # String -->
-
-{if $account.6.sip_transport != 'dns srv' && isset($account.6.server_address_secondary)}
+    
+{if isset($account.6.server_address_secondary)}
     <P2812>{$account.6.server_address_secondary}:{$account.6.sip_port}</P2812>
 {else}
     <P2812>{$account.6.server_address_secondary}</P2812>
@@ -4822,7 +4795,7 @@
     <!-- # Outbound Proxy -->
     <!-- # String -->
 
-{if $account.6.sip_transport != 'dns srv' && isset($account.6.outbound_proxy_primary)}
+{if isset($account.6.outbound_proxy_primary)}
     <P1803>{$account.6.outbound_proxy_primary}:{$account.6.sip_port}</P1803>
 {else}
     <P1803>{$account.6.outbound_proxy_primary}</P1803>
@@ -4831,7 +4804,7 @@
     <!-- # Backup Outbound Proxy -->
     <!-- # String -->
 
-{if $account.6.sip_transport != 'dns srv' && isset($account.6.outbound_proxy_secondary)}
+{if isset($account.6.outbound_proxy_secondary)}
     <P2833>{$account.5.outbound_proxy_secondary}:{$account.6.sip_port}</P2833>
 {else}
     <P2833>{$account.6.outbound_proxy_secondary}</P2833>
@@ -4859,7 +4832,7 @@
 
     <!-- # Voice Mail UserID -->
     <!-- # String -->
-    <P1826>{$voicemail_number}</P1826>
+    <P1826>*97</P1826>
 
     <!-- # Account Display -->
     <!-- # Number: 0, 1. 0 - User Name, 1 - User ID. Default is 0 -->
@@ -5743,7 +5716,7 @@
     <!-- # Internet Protocol. 0 - Both, prefer IPv4, 1 - Both, prefer IPv6, 2 - IPv4 Only, 3 - IPv6 Only. Default is 0 -->
     <!-- # Number: 0, 1, 2, 3 -->
     <!-- # Mandatory -->
-    {if isset($grandstream_ipv_mode)}<P1415>{$grandstream_ipv_mode}</P1415>{else}<P1415>0</P1415>{/if}
+    <P1415>0</P1415>
 
     <!-- # IP Address Mode. 0 - DHCP, 1 - Static IP, 2 - PPPoE. Default is 0 -->
     <!-- # Number: 0, 1, 2 -->
@@ -5965,7 +5938,7 @@
     <!-- # Mandatory -->
 
     <P51>{$grandstream_lan_port_vlan}</P51>
-
+    
 {else}
     <P51>0</P51>
     <P22174>0</P22174>
@@ -6096,7 +6069,7 @@
     <!-- # OpenVPN Port. Default is 1194 -->
     <!-- # Number -->
     <!-- # Mandatory -->
-{if isset($grandstream_openvpn_port)}
+{if isset($grandstream_openvpn_port)}  
     <P7052>{$grandstream_openvpn_port}</P7052>
 {else}
     <P7052>1194</P7052>
@@ -6336,7 +6309,7 @@
     <!-- # Firmware Upgrade Confirmation. 0 - No, 1 - Yes. Default is 1 -->
     <!-- # Number: 0,1 -->
     <!-- # Mandatory -->
-    <P8375>1</P8375>
+    <P8375>0</P8375>
 
     <!-- #Config -->
     <!-- # Config Via. 0 - TFTP,  1 - HTTP, 2 - HTTPS, 3 - FTP, 4 - FTPS. Default is 1. Default is 2 -->
@@ -6484,11 +6457,7 @@
     <!-- # gxp - Downloaded Language -->
     <!-- # String -->
     <!-- # Mandatory -->
-{if isset($grandstream_display_language)}
     <P1362>{$grandstream_display_language}</P1362>
-{else}
-    <P1362>Auto</P1362>
-{/if}
 
     <!-- # Default Input Selection. Default is Multi-Tap. -->
     <!-- # 0 - Multi-Tap, 1 - Shiftable -->
@@ -6728,11 +6697,7 @@
     <!-- # Sort Phonebook by. 0 - Last Name, 1 - First Name. Default is 0 -->
     <!-- # Number: 0, 1 -->
     <!-- # Mandatory -->
-{if isset($grandstream_sort_phonebook_by)}
-    <P2914>{$grandstream_sort_phonebook_by}</P2914>
-{else}
     <P2914>0</P2914>
-{/if}
 
     <!-- # Phonebook Key Function. 0 - Default, 1 - LDAP Search, 2 - Local Phonebook, 3 - Local Group, 4 - Broadsoft Phonebook -->
     <!-- # Number: 0, 1, 2, 3, 4. -->
@@ -6746,11 +6711,7 @@
     <!-- # Default search mode. 0 - Quick match, 1 - Exact match. Default is 0 -->
     <!-- # Number: 0, 1. -->
     <!-- # Mandatory -->
-{if isset($grandstream_phonebook_search_mode)}
-    <P2970>{$grandstream_phonebook_search_mode}</P2970>
-{else}
     <P2970>0</P2970>
-{/if}
 
     <!-- ############################################################################## -->
     <!-- ##  Phonebook/LDAP -->
@@ -7984,9 +7945,7 @@
     <!-- # Always Ring Speaker. 0 - No, 1 - Yes. Default is 0 -->
     <!-- # Number: 0, 1 -->
     <!-- # Mandatory -->
-{if isset($grandstream_headset_ring)}
-    <P1439>{$grandstream_headset_ring}</P1439>
-{/if}
+    <P1439>0</P1439>
 
     <!-- # Group Listen with Speaker. 0 - No, 1 - Yes. Default is 0 -->
     <!-- # Number: 0, 1 -->
@@ -8178,14 +8137,15 @@
     <!-- # Wallpaper Source. 0 - Default, 1 - Download, 2-USB(for GXP2140/2160/2170 only), 3 - Uploaded, 4 - Color Background -->
     <!-- # Number: 0-4 -->
     <!-- # Mandatory -->
-{if isset($grandstream_wallpaper_url)}
-    <P2916>1</P2916>
-{/if}
+    <!-- # This is defined in if/else statement below. Commented out here to avoid duplicate declaration -->
+    <!-- <P2916>0</P2916> -->
 
     <!-- # Wallpaper Server Path -->
     <!-- # String  -->
 {if isset($grandstream_wallpaper_url)}
+    <P2916>1</P2916>
     <P2917>{$grandstream_wallpaper_url}</P2917>
+
 {/if}
 
     <!-- # Color Background. Default is #000000. -->
@@ -8314,7 +8274,7 @@
     <!-- # Mandatory -->
 {if isset($grandstream_speaker_ring_volume)}
     <P8352>{$grandstream_speaker_ring_volume}</P8352>
-{/if}
+{/if} 
 
     <!-- # Notification Tone Volume -->
     <!-- # Number: 0-7. Default is 5. -->
@@ -8536,8 +8496,7 @@
 {/if}
 
 {/for}
-
-{literal}
+    
     <!-- # Description. Max length allowed is 32 characters. -->
     <!-- # String -->
     <!-- # P1465 = -->
@@ -12257,7 +12216,7 @@
     <!-- # Value. -->
     <!-- # String. -->
     <!-- # P23903 = -->
-{/literal}
+
 
     <!-- ###################################################################################### -->
     <!-- ## Programmable Keys/Physical Multi-Purpose Keys - GXP2130/2160 only -->
@@ -12353,7 +12312,6 @@
 
 {/for}
 
-{literal}
     <!-- ###################################################################################### -->
     <!-- # MPK 2- GXP2130/2160 only -->
     <!-- ###################################################################################### -->
@@ -12953,7 +12911,6 @@
     <!-- # User ID. Max length allowed is 64 character -->
     <!-- # String -->
     <!-- # <P1463></P1463> -->
-{/literal}
 
     <!-- ############################################################################## -->
     <!-- ##  Settings/Programmable Keys / Softkeys Settings -->
@@ -13237,7 +13194,6 @@
 {/for}
 {/if}
 
-{literal}
     <!-- ###################################################################################### -->
     <!-- # EXT MPK 2 -->
     <!-- ###################################################################################### -->
@@ -17228,7 +17184,7 @@
     <!-- # Value -->
     <!-- # String -->
     <!-- # <P23798></P23798> -->
-{/literal}
+
 
 
   </config>
